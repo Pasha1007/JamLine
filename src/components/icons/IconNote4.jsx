@@ -1,0 +1,158 @@
+import React from "react";
+
+export const IconNote4 = () => {
+  return (
+    <svg
+      width="300"
+      height="300"
+      viewBox="0 0 300 300"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="90" y="20" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="20" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="10" width="10" height="10" fill="currentColor" />
+      <rect x="100" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="100" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="70" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="60" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="20" width="10" height="10" fill="currentColor" />
+      <rect x="110" y="10" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="290" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="100" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="90" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="80" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="70" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="60" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="120" y="20" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="290" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="120" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="110" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="100" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="90" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="80" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="70" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="130" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="290" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="210" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="160" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="150" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="140" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="130" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="120" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="110" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="100" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="140" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="290" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="210" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="180" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="170" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="160" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="150" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="140" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="130" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="120" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="150" y="30" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="290" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="210" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="200" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="190" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="180" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="170" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="160" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="150" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="160" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="280" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="210" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="200" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="190" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="180" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="60" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="170" y="40" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="270" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="220" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="210" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="200" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="60" width="10" height="10" fill="currentColor" />
+      <rect x="180" y="50" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="260" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="250" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="240" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="230" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="70" width="10" height="10" fill="currentColor" />
+      <rect x="190" y="60" width="10" height="10" fill="currentColor" />
+      <rect x="200" y="80" width="10" height="10" fill="currentColor" />
+      <rect x="200" y="70" width="10" height="10" fill="currentColor" />
+      <rect x="210" y="90" width="10" height="10" fill="currentColor" />
+      <rect x="210" y="80" width="10" height="10" fill="currentColor" />
+      <rect x="220" y="110" width="10" height="10" fill="currentColor" />
+      <rect x="220" y="100" width="10" height="10" fill="currentColor" />
+      <rect x="220" y="90" width="10" height="10" fill="currentColor" />
+    </svg>
+  );
+};

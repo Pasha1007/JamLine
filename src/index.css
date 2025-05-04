@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "./styles/main.css";
+@import "./styles/typography.css";
+
+
+body{
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0f0e10;
+  background-size: 25% 25%;
+  background-repeat: repeat;
+  background-image: linear-gradient(to right, #ff000017 1px, transparent 2px),
+    linear-gradient(to bottom, #ff000013 1px, transparent 2px);
+  font-family: "Tektur", sans-serif;
+  overflow: hidden;
+}
+
+:root{
+  --toastify-color-light: #292626;
+  --toastify-text-color-light: #ffffff;
+  --toastify-font-family: Tektur
+}
+
+
+
+

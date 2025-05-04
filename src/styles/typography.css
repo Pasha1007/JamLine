@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Tektur";
+    src: url("../assets/fonts/Tektur-VariableFont.ttf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../assets/fonts/IBMPlexMono-Regular.ttf") format("opentype");
+    font-weight: 400;
+  }
+.tektur-xl {
+    font-family: Tektur;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: white;
+}
+.tektur-lg {
+    font-family: Tektur;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: white;
+}
+
+.tektur-md {
+    font-family: Tektur;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: white;
+}
+
+.ibm-lg{
+    font-family: IBM Plex Mono;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: #ffffff86;
+}
+
+.ibm-md-secondary{
+    font-family: IBM Plex Mono;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: #ffffff86;
+}
+
+.ibm-md{
+    font-family: IBM Plex Mono;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 33.6px;
+    letter-spacing: 0.03em;
+    color: white;
+}
