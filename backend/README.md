@@ -1,4 +1,4 @@
-Frontend частина проекту JamLine
+Backend частина проекту JamLine
 
 Для запуску:
 
