@@ -1,7 +1,6 @@
-import axios from "axios";
+import axiosInstance from "../global/axiosInstance";
 
 const url = import.meta.env.VITE_BASE_URL;
-const token = localStorage.getItem("accessToken");
 
 export const saveRecord = async (name, file) => {
   try {
@@ -9,10 +8,9 @@ export const saveRecord = async (name, file) => {
     formData.append("name", name);
     formData.append("audio", file, name);
 
-    const response = await axios.post(`${url}/upload`, formData, {
+    const response = await axiosInstance.post("/upload", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: token,
       },
     });
 
@@ -25,12 +23,7 @@ export const saveRecord = async (name, file) => {
 
 export const getMyRecords = async () => {
   try {
-    const response = await axios.get(`${url}/audio`, {
-      headers: {
-        Authorization: token,
-      },
-    });
-
+    const response = await axiosInstance.get("/audio");
     return response.data;
   } catch (error) {
     console.log("Error while fetching records:", error);

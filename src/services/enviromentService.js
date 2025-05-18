@@ -1,23 +1,11 @@
-import axios from "axios";
-
-const url = import.meta.env.VITE_BASE_URL;
-const token = localStorage.getItem("accessToken");
+import axiosInstance from "../global/axiosInstance";
 
 export const createEnvironment = async (name, instrument) => {
   try {
-    const response = await axios.post(
-      `${url}/environment`,
-      {
-        name,
-        instrument,
-      },
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
-
+    const response = await axiosInstance.post("/environment", {
+      name,
+      instrument,
+    });
     return response.data;
   } catch (error) {
     console.log("Error while creating env:", error);
@@ -27,11 +15,7 @@ export const createEnvironment = async (name, instrument) => {
 
 export const deleteEnvironment = async (id) => {
   try {
-    const response = await axios.delete(`${url}/environment/${id}`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await axiosInstance.delete(`/environment/${id}`);
     return response.data;
   } catch (error) {
     console.log("Error while deleting env: ", error);
@@ -41,12 +25,7 @@ export const deleteEnvironment = async (id) => {
 
 export const getMyEnvs = async () => {
   try {
-    const response = await axios.get(`${url}/environment`, {
-      headers: {
-        Authorization: token,
-      },
-    });
-
+    const response = await axiosInstance.get("/environment");
     return response.data;
   } catch (error) {
     console.log("Error while getting envs:", error);
@@ -56,12 +35,7 @@ export const getMyEnvs = async () => {
 
 export const getEnvById = async (id) => {
   try {
-    const response = await axios.get(`${url}/environment/${id}`, {
-      headers: {
-        Authorization: token,
-      },
-    });
-
+    const response = await axiosInstance.get(`/environment/${id}`);
     return response.data;
   } catch (error) {
     console.log(`Error while getting env ${id}:`, error);

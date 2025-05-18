@@ -56,7 +56,7 @@ const RecordList = () => {
   return (
     <AnimatePresence key="motion-main">
       {isEnvironments ? (
-        <div className="flex justify-start pt-50 gap-12 items-center flex-col w-screen h-screen">
+        <div className="flex justify-center gap-8 items-center flex-col w-screen h-screen">
           <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
