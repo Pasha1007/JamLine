@@ -1,12 +1,24 @@
-# React + Vite
+НАЗВА: JamLine
+ТЕМА: РОЗРОБЛЕННЯ ЗАСТОСУНКУ ДЛЯ ОБРОБКИ АУДІО ТА АВТОМАТИЗАЦІЇ СТВОРЕННЯ ІНСТРУМЕНТАЛЬНИХ ПАРТІЙ ПІД ФОНОВІ ТРЕКИ З ВИКОРИСТАННЯМ МОДЕЛЕЙ ЗГОРТКОВИХ НЕЙРОННИХ МЕРЕЖ ТИПУ U-NET
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+АВТОР: Крамар Павло Анатолійович
+НАУКОВИЙ КЕРІВНИК: Венгриняк Віталій Романович, вчитель, викладач, IT Step School, IT Step Academy
 
-Currently, two official plugins are available:
+ОПИС: Розоблений веб-застосунок передбачає можливість запису електронних музичних інструментів, редагування вихідного аудіо та збереження записаних треків в власне сховище. Також в додатко інтегровано інструменти штучного інелекту для сегментації завантажених аудіо файлів на окремі звукові доріжки.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ДЛЯ ЗАПУСКУ ПОТРІБНО:
 
-## Expanding the ESLint configuration
+    1. Ініціалізувати репозиторій в свому редакторі коду -> git init
+    2. Клонувати репозиторій -> git clone https://github.com/Pasha1007/bachelor_Kramar.git
+    3. Перейти до кореневої папки з проектом -> cd bachelor_Kramar
+    4. Спочатку запустити сервер:
+        4.1. Перейти до папки backend -> cd backend
+        4.2. Встановити потрібні пакети -> npm i
+        4.3. Запустити проект -> npm run dev
+    5. Повернутись до кореневої папки
+    6. Запуск клієнської частини:
+        6.1. Перейти до папки frontend -> cd frontend
+        6.2. Встановити потрібні пакети -> npm i
+        6.3. Запустити проект -> npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Додаток повинен запуститись на http://localhost:5173/

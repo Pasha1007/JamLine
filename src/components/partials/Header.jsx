@@ -8,9 +8,9 @@ import { logoutUser } from "../../services/authService";
 import { toast } from "react-toastify";
 
 import IconLogo from "../../assets/logo-full.svg";
-import IconRecord from "../../components/icons/icon-record.svg";
-import IconSeparate from "../../components/icons/icon-separate.svg";
-import IconStorage from "../../components/icons/icon-storage.svg";
+import IconRecord from "../icons/icon-record.svg";
+import IconSeparate from "../icons/icon-separate.svg";
+import IconStorage from "../icons/icon-storage.svg";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("record");
