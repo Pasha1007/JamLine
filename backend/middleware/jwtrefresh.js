@@ -1,35 +1,42 @@
 const jwt = require("jsonwebtoken");
-const generateToken = require("./jwtgenerator");
+const { generateAccessToken, generateRefreshToken } = require("./jwtgenerator");
 
-class refreshToken {
-  async refresh(req, res) {
-    try {
-      const { token } = req.body;
-      if (!token) {
-        return res.status(400).json({ message: "Refresh token is required" });
-      }
+const refreshTokens = new Set();
 
-      jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
-        if (err) {
-          if (err.name === "TokenExpiredError") {
-            return res.status(401).json({ message: "Refresh token expired" });
-          }
-          return res.status(401).json({ message: "Invalid refresh token" });
-        }
+const addToken = (token) => refreshTokens.add(token);
+const removeToken = (token) => refreshTokens.delete(token);
+const hasToken = (token) => refreshTokens.has(token);
 
-        const { user_id, ...rest } = decoded;
-
-        const newToken = generateToken({
-          user_id,
-          ...rest,
-        });
-
-        res.status(200).json({ token: newToken });
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Internal server error" });
-    }
+const refresh = (req, res) => {
+  const { refreshToken } = req.cookies;
+  if (!refreshToken || !hasToken(refreshToken)) {
+    return res.sendStatus(403); // Forbidden
   }
-}
 
-module.exports = new refreshToken();
+  jwt.verify(refreshToken, process.env.JWT_SECRET_KEY, (err, user) => {
+    if (err) return res.sendStatus(403);
+
+    removeToken(refreshToken);
+
+    const newAccessToken = generateAccessToken({
+      id: user.id,
+      email: user.email,
+    });
+
+    const newRefreshToken = generateRefreshToken({
+      id: user.id,
+      email: user.email,
+    });
+
+    addToken(newRefreshToken);
+
+    res
+      .cookie("refreshToken", newRefreshToken, {
+        httpOnly: true,
+        path: "/refresh",
+      })
+      .json({ accessToken: newAccessToken });
+  });
+};
+
+module.exports = { addToken, removeToken, hasToken, refresh };
