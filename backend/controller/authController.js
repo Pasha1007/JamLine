@@ -1,7 +1,11 @@
 const db = require("../db");
 const Joi = require("joi");
 
-const jwtgenerator = require("../middleware/jwtgenerator");
+const {
+  generateAccessToken,
+  generateRefreshToken,
+} = require("../middleware/jwtgenerator");
+const { addToken } = require("../middleware/jwtrefresh");
 
 class authController {
   async authorization(req, res) {
@@ -25,17 +29,19 @@ class authController {
 
       if (existingUser) {
         if (existingUser.password === password) {
-          const token = jwtgenerator(existingUser);
+          const accessToken = generateAccessToken(existingUser);
+          const refreshToken = generateRefreshToken(existingUser);
+          addToken(refreshToken);
 
-          return res
-            .cookie("token", token, {
-              httpOnly: true,
-            })
-            .status(200)
-            .json({
-              message: "Successfully logged in as existing user",
-              token,
-            });
+          res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            path: "/refresh",
+          });
+
+          return res.status(200).json({
+            message: "Successfully logged in",
+            accessToken,
+          });
         } else {
           return res.status(400).json({ error: "Wrong password" });
         }
@@ -44,15 +50,21 @@ class authController {
           "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
           [email, password]
         );
-        const token = jwtgenerator(newUser.rows[0]);
-        const refreshToken = jwtgenerator(newUser.rows[0]);
+        const user = newUser.rows[0];
 
-        return res
-          .cookie("token", token, {
-            httpOnly: true,
-          })
-          .status(200)
-          .json({ message: "Successfuly signed in as new user", token });
+        const accessToken = generateAccessToken(user);
+        const refreshToken = generateRefreshToken(user);
+        addToken(refreshToken);
+
+        res.cookie("refreshToken", refreshToken, {
+          httpOnly: true,
+          path: "/refresh",
+        });
+
+        return res.status(200).json({
+          message: "Successfully signed up",
+          accessToken,
+        });
       }
     } catch (err) {
       console.error("Authentication error:", err.message, err.stack);
