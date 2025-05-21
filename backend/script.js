@@ -44,6 +44,10 @@ APP.use("/api", environmentRoute);
 APP.use("/refresh", refreshRoute);
 APP.use("/api", separateRoute);
 APP.use(fileUpload());
+APP.use(
+  "/separation_results",
+  express.static(path.join(__dirname, "separation_results"))
+);
 APP.use("/audio", express.static(path.join(__dirname, "audio")));
 APP.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

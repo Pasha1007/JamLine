@@ -1,4 +1,39 @@
 import pool from "../db.js";
+import multer from "multer";
+import path from "path";
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "audio/");
+  },
+  filename: (req, file, cb) => {
+    const uniqueFilename = Date.now() + path.extname(file.originalname);
+    console.log("Uploaded File Name:", uniqueFilename);
+    cb(null, uniqueFilename);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedMimeTypes = [
+    "audio/wav",
+    "audio/x-wav",
+    "audio/wave",
+    "audio/x-pn-wav",
+    "audio/mpeg",
+    "audio/mp3",
+    "audio/webm",
+  ];
+  if (allowedMimeTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error("Invalid file type"), false);
+  }
+};
+
+const audio = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});
 
 const uploadAudio = async (req, res) => {
   try {
@@ -7,8 +42,8 @@ const uploadAudio = async (req, res) => {
     }
     const { filename } = req.file;
     const { name } = req.body;
-    const filepath = `http://localhost:5200/audio/${filename}`;
     const user_id = req.user?.id;
+
     const result = await pool.query(
       "INSERT INTO audio (name, path, user_id) VALUES ($1, $2, $3) RETURNING *",
       [name, filepath, user_id]
@@ -39,4 +74,4 @@ const getUserAudio = async (req, res) => {
   }
 };
 
-export { uploadAudio, getUserAudio };
+export { audio, uploadAudio, getUserAudio };
