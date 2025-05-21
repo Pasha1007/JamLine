@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const { generateAccessToken, generateRefreshToken } = require("./jwtgenerator");
+import jwt from "jsonwebtoken";
+import { generateAccessToken, generateRefreshToken } from "./jwtgenerator.js";
 
 const refreshTokens = new Set();
 
@@ -10,7 +10,7 @@ const hasToken = (token) => refreshTokens.has(token);
 const refresh = (req, res) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken || !hasToken(refreshToken)) {
-    return res.sendStatus(403); // Forbidden
+    return res.sendStatus(403);
   }
 
   jwt.verify(refreshToken, process.env.JWT_SECRET_KEY, (err, user) => {
@@ -39,4 +39,4 @@ const refresh = (req, res) => {
   });
 };
 
-module.exports = { addToken, removeToken, hasToken, refresh };
+export default { addToken, removeToken, hasToken, refresh };

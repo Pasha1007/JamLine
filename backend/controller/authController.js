@@ -1,14 +1,14 @@
-const db = require("../db");
-const Joi = require("joi");
-
-const {
+import db from "../db.js";
+import Joi from "joi";
+import {
   generateAccessToken,
   generateRefreshToken,
-} = require("../middleware/jwtgenerator");
-const { addToken } = require("../middleware/jwtrefresh");
+} from "../middleware/jwtgenerator.js";
+import jwtrefresh from "../middleware/jwtrefresh.js";
+const { addToken } = jwtrefresh;
 
 class authController {
-  async authorization(req, res) {
+  async login(req, res) {
     const schema = Joi.object({
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
@@ -21,7 +21,6 @@ class authController {
 
     try {
       const { email, password } = req.body;
-
       const userQuery = await db.query("SELECT * FROM users WHERE email = $1", [
         email,
       ]);
@@ -46,28 +45,57 @@ class authController {
           return res.status(400).json({ error: "Wrong password" });
         }
       } else {
-        const newUser = await db.query(
-          "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
-          [email, password]
-        );
-        const user = newUser.rows[0];
-
-        const accessToken = generateAccessToken(user);
-        const refreshToken = generateRefreshToken(user);
-        addToken(refreshToken);
-
-        res.cookie("refreshToken", refreshToken, {
-          httpOnly: true,
-          path: "/refresh",
-        });
-
-        return res.status(200).json({
-          message: "Successfully signed up",
-          accessToken,
-        });
+        return res.status(404).json({ error: "User not found" });
       }
     } catch (err) {
-      console.error("Authentication error:", err.message, err.stack);
+      console.error("Login error:", err.message, err.stack);
+      res.status(500).json({ err: "Internal server error" });
+    }
+  }
+
+  async register(req, res) {
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+      password: Joi.string().min(6).required(),
+    });
+
+    const { error } = schema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
+    }
+
+    try {
+      const { email, password } = req.body;
+      const userQuery = await db.query("SELECT * FROM users WHERE email = $1", [
+        email,
+      ]);
+      const existingUser = userQuery.rows[0];
+
+      if (existingUser) {
+        return res.status(400).json({ error: "User already exists" });
+      }
+
+      const newUser = await db.query(
+        "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
+        [email, password]
+      );
+      const user = newUser.rows[0];
+
+      const accessToken = generateAccessToken(user);
+      const refreshToken = generateRefreshToken(user);
+      addToken(refreshToken);
+
+      res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        path: "/refresh",
+      });
+
+      return res.status(200).json({
+        message: "Successfully signed up",
+        accessToken,
+      });
+    } catch (err) {
+      console.error("Register error:", err.message, err.stack);
       res.status(500).json({ err: "Internal server error" });
     }
   }
@@ -98,4 +126,4 @@ class authController {
   }
 }
 
-module.exports = new authController();
+export default new authController();

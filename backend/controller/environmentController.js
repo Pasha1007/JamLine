@@ -1,6 +1,6 @@
-const db = require("../db");
-const Joi = require("joi");
-const jwt = require("../middleware/jwtverify");
+import db from "../db.js";
+import Joi from "joi";
+import jwt from "../middleware/jwtverify.js";
 
 class environmentController {
   async createEnv(req, res) {
@@ -91,4 +91,4 @@ class environmentController {
   }
 }
 
-module.exports = new environmentController();
+export default new environmentController();

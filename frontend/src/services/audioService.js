@@ -1,7 +1,5 @@
 import axiosInstance from "../global/axiosInstance";
 
-const url = import.meta.env.VITE_BASE_URL;
-
 export const saveRecord = async (name, file) => {
   try {
     const formData = new FormData();

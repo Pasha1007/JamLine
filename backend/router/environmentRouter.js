@@ -1,6 +1,6 @@
-const Router = require("express");
-const EnvController = require("../controller/environmentController");
-const jwtverify = require("../middleware/jwtverify");
+import { Router } from "express";
+import EnvController from "../controller/environmentController.js";
+import jwtverify from "../middleware/jwtverify.js";
 
 const environmentRoute = new Router();
 environmentRoute.post("/environment", jwtverify, EnvController.createEnv);
@@ -12,4 +12,4 @@ environmentRoute.delete(
 );
 environmentRoute.get("/environment/:id?", jwtverify, EnvController.getEnvById);
 
-module.exports = environmentRoute;
+export default environmentRoute;
