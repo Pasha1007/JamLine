@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { AppButton } from "../components/atoms/AppButton";
 import { getMyRecords } from "../services/audioService";
 import { toast } from "react-toastify";
 import dayjs from "dayjs";
-import IntroModal from "../components/modals/IntroModal";
+import WaveSurferPlayer from "../components/waveSurferPlayer";
+
 const StoragePage = () => {
   const [records, setRecords] = useState([]);
 
@@ -70,11 +70,8 @@ const StoragePage = () => {
                       } hover: hover:bg-[#2e2c2c]`}
                     >
                       <td className="px-6 w-full py-4">{recs.name} - record</td>
-                      <td className="py-4 px-4 flex gap-12 items-center justify-end">
-                        <audio controls className="">
-                          <source src={recs.path} type="audio/mpeg" />
-                          Your browser does not support the audio element.
-                        </audio>
+                      <td className="py-4 px-4 ">
+                        <WaveSurferPlayer path={recs.path} height={20} />
                       </td>
                       <td className="px-24 w-full py-4">
                         {dayjs(recs.created_at).format("DD.MM.YYYY HH:mm")}

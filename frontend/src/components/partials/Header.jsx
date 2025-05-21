@@ -83,7 +83,7 @@ export default function Header() {
           </div>
         </nav>
         <div className="flex items-center gap-3">
-          <div className="w-[144px] tektur-md text-right">Pavlo Kramar</div>
+          <div className="w-[144px] tektur-md text-right"></div>
           <div className="text-[#FF4C02] cursor-pointer" onClick={logout}>
             <IconLogout />
           </div>
