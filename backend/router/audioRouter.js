@@ -1,8 +1,8 @@
-const Router = require("express");
-const multer = require("multer");
-const path = require("path");
-const jwtverify = require("../middleware/jwtverify");
-const { uploadAudio, getUserAudio } = require("../controller/audioController");
+import { Router } from "express";
+import multer from "multer";
+import path from "path";
+import jwtverify from "../middleware/jwtverify.js";
+import { uploadAudio, getUserAudio } from "../controller/audioController.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -41,4 +41,4 @@ const audioRoute = new Router();
 audioRoute.post("/upload", jwtverify, audio.single("audio"), uploadAudio);
 audioRoute.get("/audio", jwtverify, getUserAudio);
 
-module.exports = audioRoute;
+export default audioRoute;

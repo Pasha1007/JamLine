@@ -1,4 +1,4 @@
-const pool = require("../db");
+import pool from "../db.js";
 
 const uploadAudio = async (req, res) => {
   try {
@@ -39,4 +39,4 @@ const getUserAudio = async (req, res) => {
   }
 };
 
-module.exports = { uploadAudio, getUserAudio };
+export { uploadAudio, getUserAudio };

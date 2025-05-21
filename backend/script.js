@@ -1,15 +1,21 @@
-const express = require("express");
-const cors = require("cors");
-const authRouter = require("./router/authRouter");
-const audioRouter = require("./router/audioRouter");
-const refreshRouter = require("./router/refreshRouter");
+import "./loadEnv.js";
+import express from "express";
+import cors from "cors";
+import authRoute from "./router/authRouter.js";
+import audioRoute from "./router/audioRouter.js";
+import refreshRoute from "./router/refreshRouter.js";
+import separateRoute from "./router/separationRouter.js";
 
-const environmentRouter = require("./router/environmentRouter");
-const fileUpload = require("express-fileupload");
-const path = require("path");
-const multer = require("multer");
-const cookieParser = require("cookie-parser");
-require("dotenv").config();
+import environmentRoute from "./router/environmentRouter.js";
+import fileUpload from "express-fileupload";
+import path from "path";
+import multer from "multer";
+import cookieParser from "cookie-parser";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PORT = 5200;
 const APP = express();
@@ -32,10 +38,11 @@ APP.use(
     credentials: true,
   })
 );
-APP.use("/api", authRouter);
-APP.use("/api", audioRouter);
-APP.use("/api", environmentRouter);
-APP.use("/refresh", refreshRouter);
+APP.use("/api", authRoute);
+APP.use("/api", audioRoute);
+APP.use("/api", environmentRoute);
+APP.use("/refresh", refreshRoute);
+APP.use("/api", separateRoute);
 APP.use(fileUpload());
 APP.use("/audio", express.static(path.join(__dirname, "audio")));
 APP.listen(PORT, () => {

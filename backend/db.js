@@ -1,5 +1,5 @@
-const Pool = require("pg").Pool;
-
+import pkg from "pg";
+const { Pool } = pkg;
 const pool = new Pool({
   user: "postgres",
   password: "1007",
@@ -8,4 +8,4 @@ const pool = new Pool({
   database: "jamline",
 });
 
-module.exports = pool;
+export default pool;

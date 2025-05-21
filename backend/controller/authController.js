@@ -1,11 +1,11 @@
-const db = require("../db");
-const Joi = require("joi");
-
-const {
+import db from "../db.js";
+import Joi from "joi";
+import {
   generateAccessToken,
   generateRefreshToken,
-} = require("../middleware/jwtgenerator");
-const { addToken } = require("../middleware/jwtrefresh");
+} from "../middleware/jwtgenerator.js";
+import jwtrefresh from "../middleware/jwtrefresh.js";
+const { addToken } = jwtrefresh;
 
 class authController {
   async authorization(req, res) {
@@ -98,4 +98,4 @@ class authController {
   }
 }
 
-module.exports = new authController();
+export default new authController();
