@@ -11,7 +11,7 @@
 ВАЖЛИВО! Створіть файл .env в папках frontend та backend<br/>
 
 В /backend/.env додати <br/>
-JWT_SECRET_KEY=rweqtwqfdsagqrwgfsre87423huiu2u243h932y4b38g28b
+JWT_SECRET_KEY=rweqtwqfdsagqrwgfsre87423huiu2u243h932y4b38g28b<br/>
 MUSIC_AI_API_KEY=34aa4a5c-ae46-48d2-a967-5de6c3aa7695
 
 В /frontend/.env додати<br/>
