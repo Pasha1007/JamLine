@@ -16,6 +16,13 @@ const SeparatePage = () => {
     startFileSeparation(file);
   };
 
+  const handleDemoFile = async () => {
+    const demoFile = await fetch("/demoAudio.wav").then((res) => res.blob());
+    startFileSeparation(
+      new File([demoFile], "demoAudio.wav", { type: demoFile.type })
+    );
+  };
+
   const startFileSeparation = async (file) => {
     setLoading(true);
     try {
@@ -150,12 +157,16 @@ const SeparatePage = () => {
                   types={fileTypes}
                   children={
                     <div className="flex flex-col items-center gap-2 border-dashed border-2 border-[#FF4C02] rounded-md p-8">
-                      <div className="ibm-lg">Drag and drop your file here</div>
-                      <div className="ibm-lg">or</div>
-                      <AppButton>Select a file</AppButton>
+                      <div className="ibm-lg">
+                        Drag and drop your .wav or .mp3 file here
+                      </div>
+                      {/* <AppButton>Select a file</AppButton> */}
                     </div>
                   }
                 />
+                <AppButton onClick={handleDemoFile}>
+                  Request a demo file
+                </AppButton>
               </div>
             </motion.div>
           </AnimatePresence>

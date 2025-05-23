@@ -41,6 +41,7 @@ const uploadAudio = async (req, res) => {
       return res.status(400).json({ message: "No audio file uploaded" });
     }
     const { filename } = req.file;
+    const filepath = `http://localhost:5200/audio/${filename}`;
     const { name } = req.body;
     const user_id = req.user?.id;
 
