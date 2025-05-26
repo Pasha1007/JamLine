@@ -5,6 +5,7 @@ import {
   generateRefreshToken,
 } from "../middleware/jwtgenerator.js";
 import jwtrefresh from "../middleware/jwtrefresh.js";
+import bcrypt from "bcrypt";
 const { addToken } = jwtrefresh;
 
 class authController {
@@ -27,7 +28,11 @@ class authController {
       const existingUser = userQuery.rows[0];
 
       if (existingUser) {
-        if (existingUser.password === password) {
+        const passwordMatch = await bcrypt.compare(
+          password,
+          existingUser.password
+        );
+        if (passwordMatch) {
           const accessToken = generateAccessToken(existingUser);
           const refreshToken = generateRefreshToken(existingUser);
           addToken(refreshToken);
@@ -75,9 +80,12 @@ class authController {
         return res.status(400).json({ error: "User already exists" });
       }
 
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+
       const newUser = await db.query(
         "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
-        [email, password]
+        [email, hashedPassword]
       );
       const user = newUser.rows[0];
 
