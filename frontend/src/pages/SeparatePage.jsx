@@ -5,6 +5,7 @@ import { AppButton } from "../components/atoms/AppButton";
 import { separateFile, getSeparatedFiles } from "../services/separatorService";
 import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "motion/react";
+import { IconLogout } from "../components/icons/IconLogout";
 
 const SeparatePage = () => {
   const fileTypes = ["WAV", "MP3"];
@@ -126,8 +127,22 @@ const SeparatePage = () => {
                       className="flex flex-row items-center gap-8 justify-between "
                     >
                       <div className="tektur-lg w-24">{stemName}:</div>
-                      <div className="flex-grow">
+                      <div className="flex-grow flex gap-4">
                         <WaveSurferPlayer path={stemUrl} height={50} />
+                        <AppButton
+                          onClick={() => {
+                            const link = document.createElement("a");
+                            link.href = stemUrl;
+                            link.download = `${stemName}.wav`;
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                        >
+                          <div className="-rotate-90">
+                            <IconLogout />
+                          </div>
+                        </AppButton>
                       </div>
                     </div>
                   )
